@@ -3,4 +3,9 @@
 build/
 obj/
 *.iml
+TMessagesProj/.cxx/
+TMessagesProj/build/
+TMessagesProj/src/main/java/org/telegram/custom
+TMessagesProj/google-services.json
 local.properties
+TMessagesProj/google-services.json
