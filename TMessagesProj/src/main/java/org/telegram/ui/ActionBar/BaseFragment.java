@@ -51,6 +51,7 @@ import org.telegram.messenger.SendMessagesHelper;
 import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.ConnectionsManager;
 import org.telegram.ui.Components.LayoutHelper;
+import org.telegram.custom.utils.Log;
 
 import java.util.ArrayList;
 
@@ -288,11 +289,13 @@ public abstract class BaseFragment {
     }
 
     public boolean onFragmentCreate() {
+        Log.show(Log.Type.Info,"lifecycle", "onFragmentCreate: " + getClass().getSimpleName());
         return true;
     }
 
     @CallSuper
     public void onFragmentDestroy() {
+        Log.show(Log.Type.Info,"lifecycle", "onFragmentDestroy: " + getClass().getSimpleName());
         getConnectionsManager().cancelRequestsForGuid(classGuid);
         getMessagesStorage().cancelTasksForGuid(classGuid);
         isFinished = true;
@@ -317,11 +320,13 @@ public abstract class BaseFragment {
 
     @CallSuper
     public void onResume() {
+        Log.show(Log.Type.Info,"lifecycle", "onResume: " + getClass().getSimpleName());
         isPaused = false;
     }
 
     @CallSuper
     public void onPause() {
+        Log.show(Log.Type.Info,"lifecycle", "onPause: " + getClass().getSimpleName());
         if (actionBar != null) {
             actionBar.onPause();
         }
